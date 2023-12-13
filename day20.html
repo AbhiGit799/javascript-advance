@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning 20</title>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+    </div>
+
+
+    <script>
+
+      var marks = [10,20,30,40,50];
+      var marks2 = marks; //Array is reference type data, pointing to same memory location.        
+      marks2.push(191);
+      marks[0]=11;
+     console.log(marks);
+     console.log(marks2);
+
+     console.log("\n");
+
+     var Student = {
+        id:100,
+        name:"Raja",
+        age:23
+     };
+
+
+     var Student2 = Student;
+
+     Student2.email = "aman12@gmail.com";
+
+     console.log(Student);
+     console.log(Student2);
+
+     console.log("\n");
+     console.log("Shallow Copy");
+
+     //Shallow copy
+
+     //concat()
+     var amarks = [10,20,30,40,50];
+      var amarks2 = [].concat(amarks); //Array is reference type data, pointing to same memory location.        
+      amarks2.push(291);
+      amarks[0]=13;
+     console.log(amarks);  // [13, 20, 30, 40, 50]
+     console.log(amarks2); //[10, 20, 30, 40, 50, 291]
+
+     console.log("\n");
+
+     //Array.from
+     var bmarks = [10,20,30,40,50];
+     var bmarks2 = Array.from(bmarks);
+     bmarks2.push(391);
+     bmarks2[0] = 14;
+     console.log(bmarks); //[10, 20, 30, 40, 50]
+     console.log(bmarks2);  // [14, 20, 30, 40, 50, 391]
+     console.log("\n");
+
+     //slice way
+     var cmarks = [11,22,33,44,55];
+     var cmarks2 = cmarks.slice(0);
+     cmarks2.push(88);
+     cmarks[0]=31;
+     console.log(cmarks);   //[31, 22, 33, 44, 55]
+     console.log(cmarks2);  //[11, 22, 33, 44, 55, 88]
+
+     console.log("\n");
+
+     //Spread Operator Way.
+     var dmarks = [10,20,30,40];
+     console.log(...dmarks);   //10 20 30 40
+
+     var dmarks2 = [...dmarks];
+     dmarks2.push(71);
+     dmarks[0] = 58;
+     console.log(dmarks); //[58, 20, 30, 40]
+     console.log(dmarks2); //[10, 20, 30, 40, 71]
+
+     console.log("\n");
+
+     //For Objects = Assign method
+
+     var Student = {
+        id:200,
+        name:"Tanu",
+        age:25
+     };
+
+     var Student2 = Object.assign({},Student);
+     Student2.email = "tanu12@gmail.com";
+     Student.id = 175;
+     console.log(Student);
+     console.log(Student2);
+
+     console.log("\n");
+
+     //Spread Operator Way
+
+     var AStudent = {
+        id:150,
+        name:"Ranu",
+        age:24
+     };
+
+     var Student3 = {...AStudent}
+     Student3.email = "ranu12@gmail.com";
+     AStudent.id = 185;
+     console.log(AStudent);
+     console.log(Student3);
+
+
+     console.log("\n");
+
+     var BStudent = {
+        id:104,
+        name:"Sam",
+        age:19,
+        marks:[1,2,3,4]  //Inner data still connected in Shallow copy
+     };
+     
+     var Student4 = {...BStudent};
+
+     Student4.email = "sam12@gmail.com";
+
+     BStudent.marks.push(506);
+
+     console.log(BStudent);
+     console.log(Student4);
+
+    console.log("\n");
+    
+    //deep copy
+
+    console.log("Deep Copy");
+
+    CStudent = {
+        id:131,
+        name:"Amit",
+        age:34,
+        marks:[11,22,33,44,55]
+    };
+
+    var str = JSON.stringify(CStudent);
+
+    var Student5 = JSON.parse(str);
+
+    Student5.email = "amit12@gmail.com";
+
+    CStudent.id = 178;
+
+    CStudent.marks.push(65);
+
+    console.log(CStudent);
+    console.log(Student5);
+
+    console.log("\n");
+
+    var DStudent = {
+
+        id:189,
+        name:"Pratik",
+        age:41,
+        address:{
+            city:"Noida",
+            country:"India"
+        }
+
+    };
+
+    var vtr = JSON.stringify(DStudent);
+
+    var Student6 = JSON.parse(vtr);
+
+    Student6.email = "pratik12@gmail.com";
+
+    DStudent.email = "pratik12@gmail.com";
+
+    DStudent.id = 157;
+
+    DStudent.address.city = "Bhopal";
+
+    console.log(DStudent);
+
+    console.log(Student6);
+
+
+    console.log("\n");
+
+    console.log("Shallow Copy example on array");
+
+    var emark = [10,20,30,40,50,[11,22,33,44,55]];
+    var emark2 = [...emark];
+     
+    emark2.push(46);
+
+    emark[0] = 84;
+
+    emark[5].push = 505;
+
+    console.log(emark);  
+    console.log(emark2);
+
+    console.log("\n");
+
+    console.log("Deep copy example on array");
+
+    var fmark = [10,20,30,40,50,[11,22,33,44,55]];
+    var atr = JSON.stringify(fmark);
+
+    var fmark2 = JSON.parse(atr);
+
+    fmark2.push(404);
+
+    fmark[0]=18;
+
+    fmark[5].push(91);
+
+    console.log(fmark);
+    console.log(fmark2);
+    
+
+   console.log("\n");
+
+//    function showMsg()
+//    {
+//     console.log("Hi Vijay");
+//    }
+
+//    showMsg();
+
+//    var showMsg = function ()
+//    {
+//     console.log("Hi Vijay");
+//    }
+
+//    showMsg();
+
+//    var showMsg = () => {
+//     console.log("Hi Tarun");
+//    }
+
+//    showMsg();
+
+//     var showMsg = (funGreet,name) => {
+//         console.log(funGreet()," "+name);
+//     }
+
+//     var greet = () => {
+        
+//         return "Hello";
+
+//     }
+
+//    showMsg(greet,"Chandan");
+
+
+var showMsg = (funGreet,name)=>{
+    return function (){
+        return funGreet() + " "+name;
+    }
+}
+
+var greet = () =>{
+    return "Hello";
+}
+
+var result = showMsg(greet,"Ravi");
+
+console.log(result());
+
+console.log("\n");
+
+console.log("Callback function.");
+
+// function funA()
+// {
+//   console.log("Fun A Task Completed!!");
+// }
+
+// function funB()
+// {
+//     console.log("Fun B Called!!");
+// }
+
+// funA();
+
+// funB();
+
+function funA(callbkfun)
+{
+    console.log("Fun A Task Completed!!!");
+    
+    callbkfun();
+}
+
+function funB()
+{
+    console.log("FunB called !!");
+}
+
+funA(funB);
+
+console.log("\n");
+
+
+
+</script>
+
+
+</body>
+</html>
