@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Learning</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h2
+        style="
+          background-color: blueviolet;
+          color: white;
+          text-transform: uppercase;
+        "
+      >
+        Learning JavaScript
+      </h2>
+    </div>
+
+    <script>
+      //Inner function and outter function
+
+      // function fun1()
+      // {
+      //     fun2();
+      //     function fun2()
+      //     {
+
+      //     }
+      // }
+
+      console.log("\n");
+
+      var a = "Hi All";
+      function first() {
+        var b = " How are you ?";
+        second();
+        function second() {
+          var c = " My name is Ajeet Singh";
+          console.log(a + b + c);
+        }
+      }
+
+      first();
+
+      console.log("\n");
+
+      // var aa = "Hi All";
+      // function Afirst()
+      // {
+      //     var bb = " How are you ?";
+      //     Asecond();
+
+      // }
+      // function Asecond()
+      // {
+      //         var cc = " My name is Ajeet Singh";
+      //         console.log(aa + bb + cc);
+      // }
+
+      // Afirst(); //day19.html:63  Uncaught ReferenceError: bb is not defined
+
+      console.log("\n");
+
+      var aaa = "Hi All";
+      function Bfirst() {
+        var bbb = " How are you ?";
+        Bsecond();
+      }
+      function Bsecond() {
+        var ccc = " My name is Ajeet Singh";
+        console.log(aaa + ccc);
+      }
+
+      Bfirst();
+
+      console.log("\n");
+
+      var d = "Hi All";
+
+      function Cfirst() {
+        var e = " How are you ?";
+        Bsecond();
+
+        // console.log(d + e + f); //Uncaught ReferenceError: f is not defined
+        console.log(d + e); //Lexical scoping
+        function Csecond() {
+          var f = " My name is Ajeet Singh";
+        }
+      }
+
+      Cfirst();
+
+      console.log("\n");
+
+      //g,h,i
+
+      // var g = "Hi All";
+
+      // function Dfirst()
+      // {
+      //     var h = " How are you ?";
+      //     Dsecond();
+
+      //     function Dsecond()
+      //     {
+      //         var i = " My name is Ajeet Singh";
+      //         Dthree();
+      //     }
+
+      //     function Dthree()
+      //     {
+      //         var j = " I am fine.";
+      //         console.log(g+h+i+j);
+      //     }
+      // }
+
+      // Dfirst(); //Error = Uncaught ReferenceError: i is not defined
+
+      console.log("\n");
+
+      var x = "Hi All";
+      function Efirst() {
+        var y = " How are you ?";
+        Esecond();
+        function Esecond() {
+          var z = " My name is Samar Singh";
+          Ethree();
+          function Ethree() {
+            var k = " I am fine.";
+            console.log(x + y + z + k);
+          }
+        }
+      }
+
+      Efirst();
+
+      console.log("\n");
+
+      // Closure
+    //   let name = "Sita";
+    //   let outerFun = (aaaa)=>{
+    //     debugger;
+    //     let bbbb = 10;
+    //     let innerFun = () =>{
+    //         debugger;
+    //         let cccc = 20;
+    //         let sum = aaaa + bbbb+ cccc;
+    //         console.log(`Sum of aaaa,bbbb and cccc is ${sum}`);
+    //         console.log(name);
+    //     }
+    //     innerFun();
+    //   }
+
+    //   debugger;
+    //   outerFun(50);
+
+    //   Sum of aaaa,bbbb and cccc is NaN
+    //   Sita
+
+    console.log("\n");
+
+    // var Student = {
+    //     firstName:"Kara",
+    //     lastName:"Singh",
+    //     email:"kara12@gmail.com"
+    // }
+
+    // console.log(Student);
+
+    console.log("\n");
+
+    function Student(fName,lName,email)
+    {
+        //property
+        this.firstName = fName;
+        this.lastName = lName;
+        this.email = email;
+    }
+
+    var stuAjeet = new Student("Ajeet","Singh","a12@gmail.com");
+    var stuChandan = new Student("Chandan","Singh","c12@gmail.com");
+
+    console.log(stuAjeet);
+    console.log(stuChandan);
+
+    console.log(Student.prototype); //{constructor: ƒ}
+
+    console.log(Student.prototype === stuAjeet.__proto__); // true //to check prototype.
+
+    Student.prototype.age = 50;
+
+    var stuKavita = new Student("Kavita","Patel","kp12@gmail.com");
+
+
+    console.log(stuKavita);
+
+    console.log(stuAjeet.age); //50
+
+    
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
