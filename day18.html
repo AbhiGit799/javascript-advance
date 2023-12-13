@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning </title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+      </div> 
+
+    <script>
+
+        //How JavaScript Language Works.
+
+        //Variable Hosting
+
+        //Creation Phase and Execution Phase.
+
+        console.log("Advance JavaScript Day 1");
+
+        console.log("\n");
+
+       var myName = "Ajeet";
+
+       function ajeetFun()
+       {
+         alert();
+       } //right this or window in browser console to see global execution context.
+
+      function a()
+      {
+        debugger;
+        var fa = "fun a start";
+        console.log(fa);
+        b();
+        console.log("fun a end");
+      }
+
+      function b()
+      {
+        debugger;
+        console.log("fun b start");
+        c();
+        console.log("fun b end.");
+      }
+
+      function c()
+      {
+        debugger;
+        
+        console.log("fun c called");
+      }
+
+      debugger;
+
+      a();
+        
+    </script>
+
+</body>
+</html>
