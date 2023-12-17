@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+</head>
+<body>
+
+    <!-- Async Await -->
+
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+      </div>
+
+   
+       <!-- Promises in javascript -->
+
+    <script>
+        
+        let Students = [
+            { rollNo: 1, name: "Ajeet", age: 20 },
+            { rollNo: 2, name: "Chandan", age: 30 },
+            { rollNo: 3, name: "Pawan", age: 10 }
+        ];
+
+        //executor
+        let obj = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let statusCode = 200;
+                //let statusCode = 502;
+                if (statusCode == 200) {
+                    let ROLLNO = [1, 2, 3];
+                    resolve(ROLLNO);
+                } else {
+                    reject("An error occured while getting list of student rollnos ajeet!!");
+                }
+            }, 3000);
+        });
+
+        let studentDetails = (rollNo) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                   // let statusCode = 200;
+                    let statusCode = 402;
+                    if (statusCode == 200) {
+                        let studentInfo = Students.find(x => x.rollNo == rollNo);
+                        resolve(studentInfo);
+                    } else {
+                        reject("An error occured while getting student details !!");
+                    }
+                }, 3000);
+            });
+        }
+
+        // obj.then((rollNos) => {
+        //     console.log(rollNos);
+        //     studentDetails(rollNos[1]).then((result) => {
+        //         console.log(result);
+        //     }).catch((err) => {
+        //         console.log(err);
+        //     });
+        //     }).catch((err) => {
+        //     console.log(err);
+        //   });
+
+
+        // obj.then((rollNos) => {
+        //     console.log(rollNos);
+        //     studentDetails(rollNos[1]).then((result) => {
+        //         console.log(result);
+        //     })
+        // });
+
+
+        async function getData() {
+            let rollNos = await obj;
+            console.log(rollNos);
+            let studentInfo = await studentDetails(rollNos[2]);
+            console.log(studentInfo);
+        }
+
+        //getData();
+
+        console.log("\n");
+
+        async function getDataerr() {
+            try {
+                let rollNos = await obj;
+                console.log(rollNos);
+                let studentInfo = await studentDetails(rollNos[2]);
+                console.log(studentInfo);
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+        
+        getDataerr();
+
+
+        function fun1() {
+            console.log("Hi");
+            console.log("Ajeet");
+            console.log("How");
+            console.log("are");
+            console.log("you ?");
+        }
+        fun1();
+
+        console.log("\n");
+
+        function Afun1() {
+            console.log("Hi");
+            console.log("Mohan");
+            return;
+            console.log("How");
+            console.log("are");
+            console.log("you ?");
+        }
+        
+        Afun1();
+        console.log("\n");
+        Afun1();
+
+        console.log("\n");
+
+        function* numGen() {
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            yield 5;
+            yield 6;
+        }
+        let gen = numGen();
+        //console.log(gen);
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+
+        console.log("\n");
+
+        function* AnumGen() {
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            yield 5;
+            yield 6;
+        }
+        let agen = AnumGen();
+        //console.log(gen);
+        console.log(agen.next().value);
+        console.log(agen.next().value);
+        console.log(agen.next().value);
+        console.log(agen.next().value);
+        console.log(agen.next().value);
+        console.log(agen.next().value);
+        console.log(agen.next().value);
+
+        console.log("\n");
+
+        function *BnumGen() {
+                yield 1;
+                yield 2;
+                yield 3;
+                yield 4;
+                yield 5;
+                yield 6;
+            }
+            let bgen = BnumGen();
+            //console.log(gen);
+            console.log(bgen.next().value);
+            console.log(bgen.next().value);
+            console.log(bgen.next().value);
+            console.log(bgen.next().value);
+            console.log(bgen.next().value);
+            console.log(bgen.next().value);
+            console.log(bgen.next().value);
+
+
+        function* CnumGen() {
+            console.log("Hi");
+            console.log("sam");
+            yield "";
+            console.log("How");
+            console.log("are");
+            console.log("you ?");
+        }
+        let cgen = CnumGen();
+        console.log(cgen.next().value);
+        console.log(cgen.next().value);
+
+
+        console.log("\n");
+
+        function* DnumGen() {
+            console.log("Hi");
+            console.log("Ravi");
+            let age = 50;
+            yield age;
+            console.log("How");
+            console.log("are");
+            console.log("you ?");
+        }
+        let dgen = DnumGen();
+        console.log(dgen.next().value);
+
+
+
+        function* EnumGen() {
+            let i = 100;
+            while (i <= 200) {
+                yield i++;
+            }
+        }
+        let egen = EnumGen();
+
+        function getUniqueId(){
+            console.log(egen.next().value);
+        }
+
+
+        console.log("\n");
+
+
+        fetch("http://sahosoftweb.com/api/BrandLogo/GetAll")
+            .then(res => res.json())
+            .then(response => console.log(response))
+
+
+        
+
+    </script>
+
+
+
+<button  type="button" onclick="getUniqueId()" >Get Unique Id</button>
+
+
+    
+</body>
+</html>
