@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+</head>
+<body>
+    
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+    </div>
+
+    <script>
+
+        //Object destructuring
+
+        const names = ["Ajeet","Chandan","Pawan","Samir"];
+
+       let [name1,name2,name3,name4] = names;
+
+       console.log(name1);
+       console.log(name2);
+       console.log(name3);
+       console.log(name4);
+
+       console.log("\n");
+
+       let [n1,n2,n3,n4,n5] = names;
+
+        console.log(n1);
+        console.log(n2);
+        console.log(n3);
+        console.log(n4);
+        console.log(n5); //undefined
+
+        console.log("\n");
+
+        let [a1,a2,a3,a4] = ["Ajeet","Chandan","Pawan","Samir"];
+
+        console.log(a1);
+        console.log(a2);
+        console.log(a3);
+        console.log(a4);
+
+        console.log("\n");
+
+        let [,b2,b3] = ["Ajeet","Chandan","Pawan","Samir"];
+
+        console.log(b2);
+        console.log(b3);
+
+        console.log("\n");
+
+        let [c1,,,c4] = ["Ajeet","Chandan","Pawan","Samir"];
+
+        console.log(c1);
+        console.log(c4);
+
+        console.log("\n");
+
+        const Student = {
+            firstName:"Raja",
+            lastName:"Patel",
+            age:28
+        }
+
+        let {fName,lName,ag} =Student;
+
+        console.log(fName); //undefined
+        console.log(lName); //undefined
+        console.log(ag); //undefined
+
+        console.log("\n");
+
+        let {firstName,lastName,age,emailid} = Student;
+
+        console.log(firstName); //Raja
+        console.log(lastName); //Patel
+        console.log(age); //28
+
+        console.log(emailid); //undefined
+
+        console.log("\n");
+
+        //aliasing
+
+        let {firstName:fname,lastName:lname,age:Ag} = Student;
+        
+        console.log(fname); //Raja
+        console.log(lname); //Patel
+        console.log(Ag); /// 28
+
+        console.log("\n");
+
+        let {firstName:fn,age:Agg} = Student;  //Key wise we are accessing the data. 
+        console.log(fn);
+        console.log(Agg);
+
+        console.log("\n");
+
+        //embedded object
+
+       const Stu = {
+        AfName:"Ankit",
+        lName:"Patel",
+        agge:19,
+        hobb:{
+            first:"Cricket",
+            second:"Football",
+            third:"Chess"
+        }
+       }
+
+       let {AfName,agge,hobb} = Stu;
+
+       console.log(hobb); //{first: 'Cricket', second: 'Football', third: 'Chess'}
+
+       console.log("\n");
+
+       let {first,second,third} = hobb;   //same name as key of hobb
+
+       console.log(first); //Cricket
+       console.log(second); //Football
+       console.log(third); //Chess
+
+       console.log(`My Hobbies are ${first},${second} and ${third}.`);  
+
+       console.log("\n");
+
+       const BStudent ={
+        fn:"Om",
+        ln:"Patel",
+        aag:21
+       }
+
+    //    function getStudent(obj)
+    //    {
+    //      const {fn,ln,aag} = obj;
+
+    //      console.log(fn);
+    //      console.log(ln);
+    //      console.log(aag);
+
+    //    }
+
+      function getStudent({fn,ln,aag})
+       {
+         console.log(fn);
+         console.log(ln);
+         console.log(aag);
+       }
+
+       getStudent(BStudent);
+
+       console.log("\n");
+
+       //Spread Operator
+
+       function display(a,b,c,...arr) //rest parameter
+       {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(arr);
+
+       }
+
+       display(10,20,30,40,50,60);
+
+       console.log("\n");
+
+       function show(a,b,c)
+       {
+        console.log(a); //11
+        console.log(b);//22
+        console.log(c);//33
+       }
+
+       show(...[11,22,33]); //spread
+
+       console.log("\n");
+       
+       let ary = [25,35,45];
+
+       console.log(...ary); //25 35 45
+
+       console.log("\n");
+
+       let arr1 = [10,20,30,40,50];
+
+       let arr2 = [60,70,80,90,100];
+
+       let arr3 = [...arr1,...arr2];
+
+       console.log(arr3); //[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+      console.log("\n");
+      
+      let ASt = {
+        firstName : "Karan",
+        lastName: "Singh",
+        age:29
+       
+      }
+
+      let StudentInfo = {
+        address: "Noida",
+        country:"India",
+        age:39
+      }
+
+      console.log({...ASt,...StudentInfo});
+
+
+      console.log("\n");
+
+      //Synchronous vs Asynchronous
+
+
+
+       
+
+    </script>
+
+</body>
+</html>
