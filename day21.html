@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+      </div>
+
+    <script>
+
+        console.log("Call method");
+
+        var Student = {
+            firstName: "Ajeet",
+            lastName:"Singh",
+            getName : function()
+            {
+                console.log(`My Name is ${this.firstName} ${this.lastName}`);
+            }
+        }
+
+        Student.getName();
+
+    
+
+        var Student2 = {
+            firstName:"Chandan",
+            lastName:"Patel"
+        }
+
+        Student.getName.call(Student2);
+
+        var Student3 = {
+            firstName:"Amit",
+            lastName:"Kumar"
+        }
+
+        Student.getName.call(Student3);
+
+        var AStudent = {
+            firstName: "Pawan",
+            lastName:"Patel",
+            getName:function(age,emailid)
+            {
+                console.log(`My name is ${this.firstName} ${this.lastName} and age is ${age} and email is ${emailid}`);
+            }
+        }
+
+        AStudent.getName(25,'pawan12@gmail.com');
+
+        AStudent.getName.call(Student2,36,"chandan12@gmail.com");
+
+       console.log("\n");
+
+       //Apply method
+
+       console.log("Apply Method.");
+
+       Student.getName.apply(Student2);
+
+      // AStudent.getName.apply(Student2,36,"chandan12@gmail.com"); //Uncaught TypeError: CreateListFromArrayLike called on non-object
+
+      //apply needs array.
+
+      AStudent.getName.apply(Student2,[36,"chandan12@gmail.com"]);
+
+      console.log("\n");
+
+     var arr = [1,5,8,9,6,2,10,85,6];
+
+     var result = Math.max.apply(null,[1,5,8,9,6,2,10,85,6]);
+
+     console.log(result);
+    
+     var ans = Math.max(...[1,5,2,7,2]);
+
+     console.log(ans);
+
+     console.log("\n");
+
+     console.log("Bind method");
+
+     var NewStudent ={
+        firstName:"Raja",
+        lastName:"Singh"
+     }
+
+     var NewStudent2 ={
+        firstName:"Ankit",
+        lastName:"Singh"
+     }
+
+     var Stu = {
+        firstName:"Sita",
+        lastName:"Patel",
+        getName: function(){
+            console.log(`My name is ${this.firstName} ${this.lastName}`);
+        }
+     }
+     Stu.getName();
+     var Student2 = Stu.getName;
+     Student2(); //My name is undefined undefined
+
+     console.log("\n");
+
+     Stu.getName();
+     var rt = Stu.getName.bind(Stu);
+     rt(); //My name is Sita Patel
+
+     console.log("\n");
+     var st = Stu.getName.bind(NewStudent);
+     st(); // My name is Raja Singh 
+
+
+     console.log("\n");
+
+    function displayName()
+     {
+        console.log(`My name is ${this.firstName} ${this.lastName}`);
+
+     }
+
+     var qa = displayName.bind(NewStudent);
+     qa();
+     var qt = displayName.bind(NewStudent2);
+     qt();
+
+     console.log("\n");
+
+     function adisplayName(age,emailid)
+     {
+        console.log(`My name is ${this.firstName} ${this.lastName} and age is ${age} and email is ${emailid}`);
+
+     }
+
+     var ar = adisplayName.bind(NewStudent,26,'raja12@gmail.com');
+
+     ar();
+
+     var dr = adisplayName.bind(NewStudent2,36,'ankit12@gmail.com');
+
+     dr();
+
+     console.log("\n");
+
+
+
+
+    </script>
+
+</body>
+</html>
