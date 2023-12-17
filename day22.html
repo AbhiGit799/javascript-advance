@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+      </div>
+
+    <script>
+        //ECMAScript
+        let firstName = "Aman";
+        let lastName = "Singh";
+
+        console.log(`My name is ${firstName} ${lastName}`);
+
+        let StudentName = "Ajeet";
+
+        console.log(`${StudentName}`.startsWith("A"));  //true
+        
+        console.log(`${StudentName}`.endsWith("e")); //false
+
+        console.log(`${StudentName}`.includes("Aj")); //true
+
+        console.log(`${StudentName} `.repeat(3));
+        
+        function sum(a,b)  //named function
+        {
+          console.log(a+b);
+        }
+
+        sum(10,20);
+
+        console.log("\n");
+
+        var add = (a,b,c)=>{
+            console.log(a+b+c);  //60
+        }
+
+        add(10,20,30);
+        
+        let num = 5.55;
+        console.log(Math.sign(num)); //1
+
+        let n =0;
+        console.log(Math.sign(n)); //0
+
+        let str = "ajeet";
+        console.log(Math.sign(str)); //NaN
+
+        let st = "11";
+        console.log(Math.sign(st)); //1
+
+        let op = -99;
+        console.log(Math.sign(op)); //-1
+
+        let cp = -(-34);
+        console.log(Math.sign(cp)); //1
+
+
+        var n1 = 5.56;
+        console.log(Math.trunc(n1)); //5
+
+        var n2 = 5.9;
+        console.log(Math.trunc(n2)); //5
+
+        var n3 = 6.965;
+
+        console.log(Math.floor(n3)); //6
+
+        console.log(Math.ceil(n3)); // 7
+
+        var n4 = -8.14;
+
+        console.log(Math.floor(n4)); //-9
+
+        console.log(Math.ceil(n4)); //-8
+
+        console.log(5**3); //125
+
+        var n5=86;
+
+        console.log(isNaN(n5)); //false
+
+
+    </script>
+    
+</body>
+</html>
