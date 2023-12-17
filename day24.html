@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h2
+          style="
+            background-color: blueviolet;
+            color: white;
+            text-transform: uppercase;
+          "
+        >
+          Learning JavaScript
+        </h2>
+      </div>
+
+    <script>
+        function Person(name,age,gender)
+        {
+            this.name = name;
+            this.age=age;
+            this.gender = gender;
+        }
+        var P1 = new Person("Ajeet",24,"Male");
+        console.log(P1);
+
+        var P2 = new Person("Mohan",24,"Male");
+        console.log(P2);
+
+        console.log("\n");
+
+        class Student {
+
+            constructor()
+            {
+                console.log("Constructor Called.");
+                this.firstName = "Raman"; //created properties
+                this.lastName = "Patel";
+                this.age = 31
+            }
+
+           fun1()
+            {
+                console.log(`My name is ${this.firstName} ${this.lastName} and age is ${this.age}`);
+            }
+        }
+
+        var obj1 = new Student();
+        obj1.fun1();
+
+        console.log("\n");
+
+        var obj2 = new Student();
+        obj2.fun1();
+
+        console.log("\n");
+
+        class Stu {
+
+            constructor(fName,lName,age)
+            {
+                this.firstName = fName;
+                this.lastName = lName;
+                this.age = age;
+            }
+
+            fun1()
+            {
+                console.log(`My name is ${this.firstName} ${this.lastName} and age is ${this.age}`);
+            }
+        }
+
+        var obj3 = new Stu("Sita","Singh",32);
+        console.log(obj3);
+
+        console.log("\n");
+        
+        class FirstStudent{
+
+            constructor()
+            {
+
+            }
+
+        }
+        class FirstPoorStudent extends FirstStudent{
+
+        }
+
+        var aobj = new FirstPoorStudent();
+
+        console.log("\n");
+
+
+
+        // class DemoStudent
+        // {
+          
+        // }
+        // class DemoPoorStudent extends DemoStudent{
+
+        //     constructor()
+        //     {
+                
+        //     }
+        // }
+
+        // var bobj = new DemoPoorStudent(); //Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+
+      class ADemoStudent
+      {
+
+      }
+      class ADemoPoorStudent extends ADemoStudent
+      {
+        constructor()
+        {
+          super(); //to call parent class constructor.
+        }
+      }
+
+      var cobj = new ADemoPoorStudent();
+
+     console.log("\n");
+
+     class BDemoStudent
+     {
+        constructor(fName,lName,age)
+        {
+            console.log("Base class constructor. BDemoStudent");
+            this.firstName = fName;
+            this.lastName = lName;
+            this.age = age;
+        }
+
+        fun()
+        {
+            console.log(`My name is ${this.firstName} ${this.lastName} and age is ${this.age}`);                     
+        }
+     }
+
+     class BDemoPoorStudent extends BDemoStudent
+     {
+        constructor(fn,ln,ag,sub)
+        {
+           console.log("Derived class constructor. BDemoPoorStudent");  
+         //  console.log(this); //Must call super constructor in derived class before accessing 'this' or returning from derived constructorat new BDemoPoorStudent
+           super(fn,ln,ag);
+           console.log(this);  
+           this.subject = sub; 
+           
+        }
+
+        PoorFun()
+        {
+            super.fun();
+        }
+
+        getPoorStudentDetails()
+        {
+            console.log(`I am poor in ${this.subject}`);
+        }
+     }
+
+     var dobj = new BDemoPoorStudent("Ritu","Patel",28,"SST");
+
+     dobj.PoorFun();
+     dobj.getPoorStudentDetails();
+
+     console.log("\n");
+
+     class Employee 
+     {
+        //credit = 50;  //not a good practice.
+        constructor()
+        {
+            this.amount = 1000;
+            this.credit = 50;
+        }
+        getAmount()
+        {
+            console.log(`Amount = ${this.amount} and credit = ${this.credit}`);
+        }
+     }
+
+     var obj4 = new Employee();
+
+     obj4.getAmount();
+
+     console.log("\n");
+
+
+    </script>
+
+
+</body>
+</html>
